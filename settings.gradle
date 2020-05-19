@@ -1,2 +1,2 @@
 rootProject.name='newProject'
-include ':app'
+include ':app', ':lvb', ':beauty'
