@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundImageView">
+        <attr name="r_corner_radius_each" format="integer" />
+        <attr name="r_corner_radius_top_left" format="integer" />
+        <attr name="r_corner_radius_top_right" format="integer" />
+        <attr name="r_corner_radius_bottom_left" format="integer" />
+        <attr name="r_corner_radius_bottom_right" format="integer" />
+        <attr name="borderRadius" format="dimension" />
+        <attr name="type">
+            <enum name="circle" value="0" />
+            <enum name="customize" value="1" />
+            <enum name="round" value="2" />
+        </attr>
+    </declare-styleable>
+
+</resources>
