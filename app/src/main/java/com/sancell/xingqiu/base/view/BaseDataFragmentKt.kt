@@ -1,4 +1,4 @@
-package cn.sancell.xingqiu.kt
+package com.sancell.xingqiu.base.view
 
 import android.content.Context
 import android.graphics.drawable.AnimationDrawable
@@ -14,8 +14,9 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.sancell.xingqiu.R
-import handbank.hbwallet.BaseFragment
-import handbank.hbwallet.BaseViewModel
+import com.sancell.xingqiu.base.viewmodel.BaseViewModel
+import com.sancell.xingqiu.dialog.LoadingDialogUtils
+import com.sancell.xingqiu.enump.LoadType
 import kotlinx.android.synthetic.main.base_title_layout.*
 
 /**
@@ -38,8 +39,10 @@ abstract class BaseDataFragmentKt<VM : BaseViewModel> : BaseFragment<VM>(), View
     lateinit var toolbar_navigation //title
             : Toolbar
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         var viewById: LinearLayout?
         if (mRoot != null && mRoot?.parent != null) {
             val parent = mRoot?.parent as ViewGroup
@@ -54,13 +57,18 @@ abstract class BaseDataFragmentKt<VM : BaseViewModel> : BaseFragment<VM>(), View
             mRoot = inflater.inflate(getLayoutResId(), container, false)
             mRoot?.setOnTouchListener(this)
             if (isLoadNotDat) { //是否需要增加暂无数据
-                val lp = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-                val load = inflater.inflate(R.layout.load_layout, container, false) as RelativeLayout
+                val lp = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
+                val load =
+                    inflater.inflate(R.layout.load_layout, container, false) as RelativeLayout
                 load.addView(mRoot, lp)
                 notView = inflater.inflate(R.layout.not_data_layout, container, false)
                 notView?.setVisibility(View.GONE)
                 load.addView(notView, lp)
-                netWorkError = inflater.inflate(R.layout.network_error_data_layout, container, false)
+                netWorkError =
+                    inflater.inflate(R.layout.network_error_data_layout, container, false)
                 netWorkError?.setVisibility(View.GONE)
                 load.addView(netWorkError, lp)
                 netWorkError?.setOnClickListener {
@@ -114,7 +122,8 @@ abstract class BaseDataFragmentKt<VM : BaseViewModel> : BaseFragment<VM>(), View
      */
     fun setSerHeight() {
         if (isShowTitle) {
-            val resourceId = context!!.resources.getIdentifier("status_bar_height", "dimen", "android")
+            val resourceId =
+                context!!.resources.getIdentifier("status_bar_height", "dimen", "android")
             val viewHeight = context!!.resources.getDimensionPixelSize(resourceId)
             val layoutParams: ViewGroup.LayoutParams = view_title_top.getLayoutParams()
             layoutParams.height = viewHeight
@@ -156,8 +165,12 @@ abstract class BaseDataFragmentKt<VM : BaseViewModel> : BaseFragment<VM>(), View
             /**
              * 点击空白位置 隐藏软键盘
              */
-            val mInputMethodManager = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            return mInputMethodManager.hideSoftInputFromWindow(activity!!.currentFocus!!.windowToken, 0)
+            val mInputMethodManager =
+                activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            return mInputMethodManager.hideSoftInputFromWindow(
+                activity!!.currentFocus!!.windowToken,
+                0
+            )
         }
         return false
     }
@@ -274,6 +287,33 @@ abstract class BaseDataFragmentKt<VM : BaseViewModel> : BaseFragment<VM>(), View
     override fun onPause() {
         super.onPause()
         stiopAnimation()
+    }
+
+    /**
+     * 给viewModel提供结束加载效果
+     */
+    override fun onEndLoadView(loadType: LoadType) {
+        when (loadType) {
+            LoadType.DEFAULT_LOAD -> {
+                hideLoadData()
+            }
+            LoadType.DIALOG_LOAD -> {
+                LoadingDialogUtils.dimsProgress()
+            }
+        }
+    }
+    /**
+     * 给viewModel提供开始加载效果
+     */
+    override fun onStartLoadView(loadType: LoadType) {
+        when (loadType) {
+            LoadType.DEFAULT_LOAD -> {
+                showLoadData()
+            }
+            LoadType.DIALOG_LOAD -> {
+                LoadingDialogUtils.showProgress(activity, "正在加载数据...")
+            }
+        }
     }
 
     /**

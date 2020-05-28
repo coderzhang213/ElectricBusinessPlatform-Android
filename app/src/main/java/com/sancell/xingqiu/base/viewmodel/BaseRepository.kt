@@ -1,5 +1,6 @@
-package handbank.hbwallet
+package com.sancell.xingqiu.base.viewmodel
 
+import com.sancell.xingqiu.entity.base.ResResponse
 import com.sancell.xingqiu.http.utils.RetrofitUtil
 
 

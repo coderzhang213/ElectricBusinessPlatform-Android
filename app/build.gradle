@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 
@@ -104,4 +103,5 @@ dependencies {
 
     //引用腾讯直播
     implementation project(':lvb')
+
 }

@@ -1,4 +1,4 @@
-package cn.sancell.xingqiu.kt
+package com.sancell.xingqiu.base.view
 
 import android.content.Context
 import android.graphics.drawable.AnimationDrawable
@@ -13,7 +13,9 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import com.sancell.xingqiu.R
-import handbank.hbwallet.BaseViewModel
+import com.sancell.xingqiu.base.viewmodel.BaseViewModel
+import com.sancell.xingqiu.dialog.LoadingDialogUtils
+import com.sancell.xingqiu.enump.LoadType
 import kotlinx.android.synthetic.main.base_title_layout.*
 
 /**
@@ -244,7 +246,32 @@ abstract class BaseDataActivityKt<VM : BaseViewModel> : BaseActivity<VM>(), View
             }
         }
     }
-
+    /**
+     * 给viewModel提供结束加载效果
+     */
+    override fun onEndLoadView(loadType: LoadType) {
+        when (loadType) {
+            LoadType.DEFAULT_LOAD -> {
+                hideLoadData()
+            }
+            LoadType.DIALOG_LOAD -> {
+                LoadingDialogUtils.dimsProgress()
+            }
+        }
+    }
+    /**
+     * 给viewModel提供开始加载效果
+     */
+    override fun onStartLoadView(loadType: LoadType) {
+        when (loadType) {
+            LoadType.DEFAULT_LOAD -> {
+                showLoadData()
+            }
+            LoadType.DIALOG_LOAD -> {
+                LoadingDialogUtils.showProgress(this, "正在加载数据...")
+            }
+        }
+    }
     override fun onPause() {
         super.onPause()
         stiopAnimation()

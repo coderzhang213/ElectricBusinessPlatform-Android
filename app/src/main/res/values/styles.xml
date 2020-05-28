@@ -1,12 +1,13 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
+
     <style name="dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsFloating">true</item>
@@ -16,5 +17,45 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+    <style name="editText_phone">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@null</item>
+        <item name="android:inputType">number</item>
+        <item name="android:hint">@string/input_mobile_hint</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:cursorVisible">true</item>
+        <item name="android:maxLength">13</item>
+        <item name="android:textColor">@color/color_text1</item>
+        <item name="android:textColorHint">@color/color_text4</item>
+        <item name="android:textCursorDrawable">@drawable/cursor</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="editText_code">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@null</item>
+        <item name="android:inputType">number</item>
+        <item name="android:hint">@string/input_code_hint</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:cursorVisible">true</item>
+        <item name="android:textColor">@color/color_text1</item>
+        <item name="android:textColorHint">@color/color_text4</item>
+        <item name="android:textCursorDrawable">@drawable/cursor</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="login_btn">
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/login_btn_click_style</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/btn_read_bg_enable</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="InitTheme" parent="AppTheme.NoActionBar" >
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 </resources>

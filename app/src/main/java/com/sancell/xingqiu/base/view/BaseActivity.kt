@@ -1,4 +1,4 @@
-package cn.sancell.xingqiu.kt
+package com.sancell.xingqiu.base.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,17 +7,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import cn.sancell.xingqiu.util.observer.ObserverKey
+import com.sancell.xingqiu.base.viewmodel.BaseViewModel
+import com.sancell.xingqiu.constants.OnLoadLinsener
 import com.sancell.xingqiu.constants.network.NetWorkMonitorManager
 import com.sancell.xingqiu.constants.network.NetWorkState
 import com.sancell.xingqiu.constants.network.onNetWorkStateChangeLinsener
 import com.sancell.xingqiu.constants.observer.ObserverManger
 import com.sancell.xingqiu.constants.observer.OnObserver
 import com.sancell.xingqiu.dialog.ComfirmDialog
-import handbank.hbwallet.BaseViewModel
 import kotlinx.android.synthetic.main.toolbar_base.*
 
 abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity(),
-    onNetWorkStateChangeLinsener {
+    onNetWorkStateChangeLinsener , OnLoadLinsener {
     protected lateinit var mViewModel: VM
     protected var mFragment: Fragment? = null
     private var alterDialog: ComfirmDialog? = null
@@ -51,6 +52,7 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity(),
     private fun initVM() {
         providerVMClass()?.let {
             mViewModel = ViewModelProviders.of(this).get(it)
+            mViewModel.bindOnLoadLinsener(this)
             mViewModel.let(lifecycle::addObserver)
         }
     }

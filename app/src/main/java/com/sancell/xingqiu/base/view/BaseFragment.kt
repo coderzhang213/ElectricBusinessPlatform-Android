@@ -1,4 +1,4 @@
-package handbank.hbwallet
+package com.sancell.xingqiu.base.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.sancell.xingqiu.base.viewmodel.BaseViewModel
+import com.sancell.xingqiu.constants.OnLoadLinsener
 
-abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
+abstract class BaseFragment<VM : BaseViewModel> : Fragment(), OnLoadLinsener {
     protected lateinit var mViewModel: VM
     protected var mRoot: View? = null
     protected var mInflater: LayoutInflater? = null
@@ -29,7 +31,11 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
     }
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(getLayoutResId(), null)
     }
 
@@ -52,6 +58,7 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
     private fun initVM() {
         providerVMClass()?.let {
             mViewModel = ViewModelProviders.of(this).get(it)
+            mViewModel.bindOnLoadLinsener(this)
             mViewModel.let(lifecycle::addObserver)
         }
     }

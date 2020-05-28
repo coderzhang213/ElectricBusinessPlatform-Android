@@ -1,4 +1,24 @@
 <resources>
     <string name="app_name">newProject</string>
     <string name="not_data">暂无数据</string>
+    <string name="login_title">欢迎来到三少医美</string>
+    <string name="login_tip">首次登录将自动为您创建账号</string>
+    <string name="reset_pwd_tip">重新设置账号密码，请保管好您的密码</string>
+    <string name="input_mobile_hint">请输入手机号</string>
+    <string name="input_code_hint">请输入验证码</string>
+    <string name="input_login_pwd_hint">请输入密码（8-20位）</string>
+    <string name="send_code_tip">发送验证码</string>
+    <string name="re_send_code">重新发送</string>
+    <string name="pwd_login">密码登录</string>
+    <string name="code_login">验证码登录</string>
+    <string name="pwd_reset">重置密码</string>
+    <string name="login_agree_tip">未注册将为您创建并视为同意</string>
+    <string name="login_protocol_tip">用户协议</string>
+    <string name="and">和</string>
+    <string name="login_privacy_tip">隐私政策</string>
+    <string name="login">登录</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="second_text">s</string>
+
 </resources>
