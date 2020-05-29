@@ -165,7 +165,7 @@ public class LiveRoomFragment extends BaseFragment<BaseViewModel> implements OnA
      * @param isAudience 是否为观众
      */
     private void loadFragment(boolean isAudience) {
-        FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getParentFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         batchId = getArguments().getString(LiveConstant.YXID);
         roomId = getArguments().getString(LiveConstant.EXTRA_ROOM_ID);
