@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.sancell.xingqiu.base.viewmodel.BaseViewModel
 import com.sancell.xingqiu.constants.OnLoadLinsener
+import com.sancell.xingqiu.enump.LoadType
 
 abstract class BaseFragment<VM : BaseViewModel> : Fragment(), OnLoadLinsener {
     protected lateinit var mViewModel: VM
@@ -36,7 +37,19 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment(), OnLoadLinsener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(getLayoutResId(), null)
+        mRoot = inflater.inflate(getLayoutResId(), null)
+        return mRoot
+    }
+
+    fun findByView(rId: Int): View {
+        return mRoot!!.findViewById(rId)
+    }
+
+    override fun onEndLoadView(loadType: LoadType) {
+
+    }
+
+    override fun onStartLoadView(loadType: LoadType) {
     }
 
     open fun startObserve() {}

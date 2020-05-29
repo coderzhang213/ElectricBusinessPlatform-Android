@@ -3,5 +3,11 @@
     <dimen name="common_toolbar_height">49dp</dimen>
     <dimen name="title_text_size">16sp</dimen>
     <dimen name="action_bar_height">48dp</dimen>
-
+    <dimen name="live_top">50dp</dimen>
+    <dimen name="live_mar">12dp</dimen>
+    <dimen name="bottom_component_margin_vertical">8dp</dimen>
+    <dimen name="bottom_component_margin_horizontal">6dp</dimen>
+    <dimen name="home_live_height">160dp</dimen>
+    <dimen name="home_live_tool_wh">36dp</dimen>
+    <dimen name="home_live_tool_margin">7dp</dimen>
 </resources>

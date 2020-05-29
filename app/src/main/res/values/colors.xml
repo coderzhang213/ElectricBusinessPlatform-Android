@@ -21,5 +21,16 @@
     <color name="color_131413">#131413</color>
     <color name="color_text6">#87898C</color>
     <color name="color_BEBFBE">#BEBFBE</color>
+    <color name="filter_slect_text_color">#FA1905</color>
+    <color name="bg_black">#000000</color>
+    <color name="bg_card_top">#242526</color>
+    <color name="color_f1f1f1">#f1f1f1</color>
+    <color name="color_stroke1">#E8EAED</color>
+    <color name="text_main">#242526</color>
+    <color name="color_btn_main_unable">#FA1905</color>
+    <color name="btn_enter_text_unable">#80ffffff</color>
+    <color name="color_btn_main">#FA1905</color>
+    <color name="colorTran">#00FFFFFF</color>
+    <color name="color_F17000">#F17000</color>
 
 </resources>

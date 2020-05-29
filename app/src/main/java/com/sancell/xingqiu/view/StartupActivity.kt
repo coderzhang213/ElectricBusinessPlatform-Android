@@ -1,6 +1,7 @@
 package com.sancell.xingqiu.view
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.Observer
 import com.sancell.xingqiu.R
@@ -9,6 +10,10 @@ import com.sancell.xingqiu.constants.UserManager
 import com.sancell.xingqiu.help.ToastHelper
 import com.sancell.xingqiu.mvvm.viewmodel.LoginViewModel
 import com.sancell.xingqiu.view.login.activity.CodeLoginActivity
+import com.yanzhenjie.permission.AndPermission
+import com.yanzhenjie.permission.Rationale
+import com.yanzhenjie.permission.RequestExecutor
+import com.yanzhenjie.permission.runtime.Permission.Group.MICROPHONE
 
 /**
  * Created by zj on 2020/5/28.
@@ -36,6 +41,7 @@ class StartupActivity : BaseDataActivityKt<LoginViewModel>() {
                     startActivity(Intent(this@StartupActivity, CodeLoginActivity::class.java))
 
                 }
+                finish()
 
             })
             mException.observe(this@StartupActivity, Observer {
@@ -54,8 +60,23 @@ class StartupActivity : BaseDataActivityKt<LoginViewModel>() {
     }
 
     override fun initData() {
-        mViewModel.startUp()
 
+        AndPermission.with(this).runtime().permission(
+            MICROPHONE
+        ).rationale(object : Rationale<List<String>> {
+            override fun showRationale(
+                context: Context?,
+                data: List<String>?,
+                executor: RequestExecutor?
+            ) {
+                ToastHelper.showToast("希望授予权限")
+                executor?.execute()
+            }
+        }).onGranted {
+            mViewModel.startUp()
+        }.onDenied {
+            mViewModel.startUp()
+        }.start()
     }
 
 }

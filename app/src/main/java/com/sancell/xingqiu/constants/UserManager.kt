@@ -48,6 +48,8 @@ object UserManager {
         PreferencesUtils.remove(content, ConstantsKey.key_im_token)
         PreferencesUtils.remove(content, ConstantsKey.key_im_user_name)
     }
+   //获取用户SKY
+    fun getUserSkey(): String = PreferencesUtils.getString(ConstantsKey.KEY_SKEY, "")
 
     /**
      * 获取用户基本信息

@@ -30,4 +30,7 @@ object ObserverKey {
 
     //离开直播间
     const val GO_AWAY_LIVE = "go_away_live"
+    //悬浮播放结束
+    const val FLOAT_END = "live_float_end"
+    const val LIVE_FLOATE_PLAY = "live_play"
 }

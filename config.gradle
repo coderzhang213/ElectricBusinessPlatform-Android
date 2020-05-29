@@ -3,11 +3,15 @@
 ext {
     ANDROID_SUPPORT_LIBRARY_VERSION = "27.1.1"
     android = [
-            compileSdkVersion        : 29,
-            minSdkVersion            : 21,
-            targetSdkVersion         : 29,
+            compileSdkVersion: 29,
+            minSdkVersion    : 21,
+            targetSdkVersion : 29,
 
     ]
+    dependencies = ["appcompat-v7": 'com.android.support:appcompat-v7:' + ANDROID_SUPPORT_LIBRARY_VERSION,
+                    "design"      : 'com.android.support:design:' + ANDROID_SUPPORT_LIBRARY_VERSION,
+                    "recyclerview"                 : 'com.android.support:recyclerview-v7:' + ANDROID_SUPPORT_LIBRARY_VERSION,
 
+    ]
 
 }
