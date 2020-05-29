@@ -128,4 +128,5 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
     implementation 'jp.wasabeef:recyclerview-animators:2.2.6'
     implementation 'com.alibaba:fastjson:1.2.39'
+    implementation 'com.github.salomonbrys.kotson:kotson:2.5.0'
 }

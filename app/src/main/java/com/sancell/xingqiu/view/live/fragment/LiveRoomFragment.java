@@ -49,8 +49,6 @@ public class LiveRoomFragment extends BaseFragment<BaseViewModel> implements OnA
     private RecyclerView rl_gift_list;//礼物列表
 
 
-
-
     //直播参数
     private boolean isAudience = true; //默认为观众
     private String roomId;
@@ -91,7 +89,6 @@ public class LiveRoomFragment extends BaseFragment<BaseViewModel> implements OnA
         super.onActivityCreated(savedInstanceState);
         mLiveViewModel = ViewModelProviders.of(this).get(LiveViewModel.class);
     }
-
 
 
     /**
@@ -142,7 +139,6 @@ public class LiveRoomFragment extends BaseFragment<BaseViewModel> implements OnA
 
     @Override
     public void initView() {
-
         loadFragment(isAudience);
         iv_gift_icon = (LottieAnimationView) findByView(R.id.iv_gift_icon);
         mClickLikeHelp = new ClickLikeHelp(getContext(), iv_gift_icon);
@@ -198,7 +194,7 @@ public class LiveRoomFragment extends BaseFragment<BaseViewModel> implements OnA
             captureFragment.setArguments(getArguments());
             transaction.replace(R.id.layout_main_content, captureFragment);
         }
-
+        transaction.commit();
     }
 
 
@@ -222,7 +218,6 @@ public class LiveRoomFragment extends BaseFragment<BaseViewModel> implements OnA
      * 初始化人员操作布局
      */
     private void initMemberOperate() {
-
 
 
     }
@@ -259,7 +254,6 @@ public class LiveRoomFragment extends BaseFragment<BaseViewModel> implements OnA
         }
 
     }
-
 
 
     /**
@@ -429,8 +423,6 @@ public class LiveRoomFragment extends BaseFragment<BaseViewModel> implements OnA
 
     }
 
-    public void showTextToast(String text) {
-    }
 
     @Override
     public void onBaseStart() {

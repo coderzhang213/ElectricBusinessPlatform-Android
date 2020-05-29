@@ -7,5 +7,4 @@ data class UserData(
     var mobile: String = "",
     var userInfo: UserInfoData? = null,
     var userLastLogin: UserLastLoginData? = null
-) {
-}
+)

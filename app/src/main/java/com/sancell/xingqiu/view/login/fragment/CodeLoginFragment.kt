@@ -10,12 +10,14 @@ import androidx.lifecycle.Observer
 import com.sancell.xingqiu.R
 import com.sancell.xingqiu.base.view.BaseDataFragmentKt
 import com.sancell.xingqiu.constants.UserManager
+import com.sancell.xingqiu.enump.LivePlayType
 import com.sancell.xingqiu.help.CodeTextWatcher
 import com.sancell.xingqiu.help.NumberTextWatcher
 import com.sancell.xingqiu.help.TimeCount
 import com.sancell.xingqiu.help.ToastHelper
 import com.sancell.xingqiu.mvvm.viewmodel.LoginViewModel
 import com.sancell.xingqiu.utils.StringCheckUtils
+import com.sancell.xingqiu.view.live.actviity.LivePlayHomeActivity
 import kotlinx.android.synthetic.main.activity_code_login_layout.*
 import kotlinx.android.synthetic.main.layout_phone_code.*
 
@@ -61,6 +63,8 @@ class CodeLoginFragment : BaseDataFragmentKt<LoginViewModel>(), View.OnClickList
             mCodeLogin.observe(this@CodeLoginFragment, Observer {
                 //把用户信息缓存在本地
                 UserManager.cacheLocalUserInfo(it)
+                LivePlayHomeActivity.startLivePlay(context!!, LivePlayType.RE_PLAY.type, true)
+                activity?.finish()
             })
         }
 

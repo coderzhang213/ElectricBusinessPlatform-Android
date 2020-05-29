@@ -7,8 +7,10 @@ import androidx.lifecycle.Observer
 import com.sancell.xingqiu.R
 import com.sancell.xingqiu.base.view.BaseDataActivityKt
 import com.sancell.xingqiu.constants.UserManager
+import com.sancell.xingqiu.enump.LivePlayType
 import com.sancell.xingqiu.help.ToastHelper
 import com.sancell.xingqiu.mvvm.viewmodel.LoginViewModel
+import com.sancell.xingqiu.view.live.actviity.LivePlayHomeActivity
 import com.sancell.xingqiu.view.login.activity.CodeLoginActivity
 import com.yanzhenjie.permission.AndPermission
 import com.yanzhenjie.permission.Rationale
@@ -37,6 +39,7 @@ class StartupActivity : BaseDataActivityKt<LoginViewModel>() {
                 if (it.isLogin) {//已经登录去首页
                     //缓存本地数据
                     UserManager.startUpCacheUserInfo(it)
+                    LivePlayHomeActivity.startLivePlay(this@StartupActivity, LivePlayType.RE_PLAY.type, true)
                 } else {//去登录界面
                     startActivity(Intent(this@StartupActivity, CodeLoginActivity::class.java))
 

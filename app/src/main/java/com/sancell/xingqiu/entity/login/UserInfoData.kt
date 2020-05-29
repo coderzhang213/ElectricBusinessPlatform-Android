@@ -9,5 +9,4 @@ data class UserInfoData(
     var id: String = "",
     var updatedAt: String = "",
     var userId: String = ""
-) {
-}
+)

@@ -18,7 +18,6 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
     val errMsg: MutableLiveData<String> = MutableLiveData()
     override fun onCleared() {
         super.onCleared()
-        Log.i("keey", "onCleared")
         mOnLoadLinsener = null
     }
 

@@ -46,7 +46,12 @@ class LivePlayBaseFragment : BaseDataFragmentKt<LiveViewModel>(), OnBackPressedL
 
 
     companion object {
-        fun getInstet(mType: String, batchId: String, postion: Int, mOnAddRecommendLinsener: OnAddRecommendLinsener): LivePlayBaseFragment {
+        fun getInstet(
+            mType: String,
+            batchId: String,
+            postion: Int,
+            mOnAddRecommendLinsener: OnAddRecommendLinsener
+        ): LivePlayBaseFragment {
             val mLivePlayBaseFragment =
                 LivePlayBaseFragment()
             mLivePlayBaseFragment.setOnAddRecommendLinsener(mOnAddRecommendLinsener)
@@ -184,14 +189,34 @@ class LivePlayBaseFragment : BaseDataFragmentKt<LiveViewModel>(), OnBackPressedL
                     )
             } else if (this.batchInfo.liveStatus == "2") {//直播中
 
-                val mStartAudienceInfo = StartAudienceInfo(this.liveRoomInfo.roomId, this.liveRoomInfo.pullUrl, true, this.batchInfo.liveBatchId, 0, userVisibleHint, postion, true, mType)
+                val mStartAudienceInfo = StartAudienceInfo(
+                    this.liveRoomInfo.roomId,
+                    this.liveRoomInfo.pullUrl,
+                    true,
+                    this.batchInfo.liveBatchId,
+                    0,
+                    userVisibleHint,
+                    postion,
+                    true,
+                    mType
+                )
                 fragment = LiveRoomFragment.startAudience(mStartAudienceInfo)
 
             } else if (this.batchInfo.liveStatus == "3") {//结束  回放
                 if (TextUtils.isEmpty(this.batchInfo.replayUrl)) {
                     setLiveEnd(true)
                 } else {
-                    val mStartAudienceInfo = StartAudienceInfo(this.liveRoomInfo.roomId, this.batchInfo.replayUrl!!, true, this.batchInfo.liveBatchId, 0, userVisibleHint, postion, false, mType)
+                    val mStartAudienceInfo = StartAudienceInfo(
+                        this.liveRoomInfo.roomId,
+                        this.batchInfo.replayUrl!!,
+                        true,
+                        this.batchInfo.liveBatchId,
+                        0,
+                        userVisibleHint,
+                        postion,
+                        false,
+                        mType
+                    )
                     fragment = LiveRoomFragment.startAudience(mStartAudienceInfo)
                     // fragment = LivePlaybackFragment.getInstance(this.liveRoomInfo.roomId, this.batchInfo.liveBatchId, this.batchInfo.replayUrl, userVisibleHint, false, postion)
 
@@ -222,9 +247,7 @@ class LivePlayBaseFragment : BaseDataFragmentKt<LiveViewModel>(), OnBackPressedL
      * 去判断是否可以播放
      */
     fun startLivePlay() {
-
         mOnGetLivePalyStatusLinsener?.apply {
-
             getLiveStatusManger().apply {
                 //主要靠这里来判断，其他地方只是触发
                 isVisibleToUser = currPageIsShow(postion)

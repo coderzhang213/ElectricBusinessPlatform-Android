@@ -10,5 +10,4 @@ data class UserLastLoginData(
     var imei: String = "",
     var updated_at: String = "",
     var skey: String = ""
-) {
-}
+)

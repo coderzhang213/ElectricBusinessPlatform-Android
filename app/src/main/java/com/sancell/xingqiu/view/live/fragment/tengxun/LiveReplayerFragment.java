@@ -152,6 +152,7 @@ public class LiveReplayerFragment extends LiveReplayToolBaseFragment implements 
      */
     public static LiveReplayerFragment getInstance(OnActivityUiLinsenr mOnActivityUiLinsenr, String roomId, String yxId, String videoPath,
                                                    boolean isStart, boolean isLivePlay, int postion, String mType) {
+       Log.i("keey","ddddddddd");
         LiveReplayerFragment mLiveRoomFragment = new LiveReplayerFragment();
         mLiveRoomFragment.setmOnActivityUiLinsenr(mOnActivityUiLinsenr);
         Bundle bundle = new Bundle();
@@ -296,7 +297,7 @@ public class LiveReplayerFragment extends LiveReplayToolBaseFragment implements 
 
     @Override
     public void onBaseStart() {
-
+        Log.i("keey", "onBaseStart");
         if (mTengXunLiveHelp == null) {
             return;
 

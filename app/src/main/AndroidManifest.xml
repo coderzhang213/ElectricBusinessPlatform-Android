@@ -33,7 +33,9 @@
         </activity>
         <!-- 短信登录-->
         <activity android:name=".view.login.activity.CodeLoginActivity" />
-        <activity android:name=".view.live.actviity.LivePlayHomeActivity" />
+        <activity
+            android:name=".view.live.actviity.LivePlayHomeActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.sancell.xingqiu.glide.OkHttpGlideModule"

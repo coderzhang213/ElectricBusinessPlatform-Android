@@ -21,6 +21,7 @@ import com.sancell.xingqiu.view.home.fragment.ChatGroupBaseFragment
 import com.sancell.xingqiu.view.home.fragment.HomeUserFragment
 import com.sancell.xingqiu.view.home.fragment.MallHomeFragment
 import com.sancell.xingqiu.view.live.fragment.base.LivePlayBaseHoemFragment
+import kotlinx.android.synthetic.main.activit_live_paly_home_layout.*
 
 /**
  * 直播播放列表
@@ -110,20 +111,20 @@ class LivePlayHomeActivity : LiveHomeBaseActivity<LiveViewModel>() {
     override fun getLayoutResId(): Int = R.layout.activit_live_paly_home_layout
 
     override fun initView() {
-//        ll_bom.setOnLiveBomTabLinsener(object : OnLiveBomTabLinsener {
-//            override fun onTabAddClickLinser() {
-//                mViewModel.checkVerifyStatus()
-//            }
-//
-//            override fun onTabClcikLinsener(postion: Int) {
-//                if (lastTabIndex == postion) {
-//                    return
-//                }
-//                lastTabIndex = postion
-//                mLivePlayStatusManager.setHomeShowIndex(postion)
-//                getShowFragment(postion)
-//            }
-//        })
+        ll_bom.setOnLiveBomTabLinsener(object : OnLiveBomTabLinsener {
+            override fun onTabAddClickLinser() {
+                mViewModel.checkVerifyStatus()
+            }
+
+            override fun onTabClcikLinsener(postion: Int) {
+                if (lastTabIndex == postion) {
+                    return
+                }
+                lastTabIndex = postion
+                mLivePlayStatusManager.setHomeShowIndex(postion)
+                getShowFragment(postion)
+            }
+        })
     }
 
     override fun onResume() {
@@ -139,7 +140,7 @@ class LivePlayHomeActivity : LiveHomeBaseActivity<LiveViewModel>() {
 
         val isShowTab = intent.getBooleanExtra(LIVE_IS_SHOW_TAB, true)
         if (!isShowTab) {
-            //ll_bom.visibility = View.GONE
+            ll_bom.visibility = View.GONE
         }
 
         Handler().postDelayed({
