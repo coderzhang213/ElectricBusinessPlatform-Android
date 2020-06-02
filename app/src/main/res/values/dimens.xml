@@ -10,4 +10,6 @@
     <dimen name="home_live_height">160dp</dimen>
     <dimen name="home_live_tool_wh">36dp</dimen>
     <dimen name="home_live_tool_margin">7dp</dimen>
+    <dimen name="live_set_heig">54dp</dimen>
+
 </resources>

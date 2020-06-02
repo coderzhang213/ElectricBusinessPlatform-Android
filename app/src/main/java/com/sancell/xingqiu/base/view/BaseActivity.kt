@@ -15,6 +15,7 @@ import com.sancell.xingqiu.constants.network.onNetWorkStateChangeLinsener
 import com.sancell.xingqiu.constants.observer.ObserverManger
 import com.sancell.xingqiu.constants.observer.OnObserver
 import com.sancell.xingqiu.dialog.ComfirmDialog
+import com.sancell.xingqiu.enump.LoadType
 import kotlinx.android.synthetic.main.toolbar_base.*
 
 abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity(),
@@ -38,6 +39,11 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity(),
         startObserve()
     }
 
+    override fun onEndLoadView(loadType: LoadType) {
+    }
+
+    override fun onStartLoadView(loadType: LoadType) {
+    }
     //用来设置windows的属性
     open fun setWindeMode() {
 

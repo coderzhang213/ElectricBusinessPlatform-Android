@@ -1,5 +1,6 @@
 package com.sancell.xingqiu.mvvm.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.sancell.xingqiu.base.BaseApplication
 import com.sancell.xingqiu.base.viewmodel.BaseViewModel

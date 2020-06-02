@@ -10,6 +10,7 @@ import cn.sancell.xingqiu.util.observer.ObserverKey
 import com.sancell.xingqiu.constants.Constants
 import com.sancell.xingqiu.constants.ConstantsHttpUrl
 import com.sancell.xingqiu.constants.ConstantsKey
+import com.sancell.xingqiu.constants.UserManager
 import com.sancell.xingqiu.constants.observer.ObserverManger
 import com.sancell.xingqiu.constants.observer.OnObserver
 import com.sancell.xingqiu.constants.utils.ConvertUtils
@@ -65,7 +66,7 @@ class LivePlayExitServer : Service() {
                 val formBody = ConvertUtils.toHttpBuild(par)
 
                 val request: Request = Request.Builder()
-                        .url(Constants.HOST_RELEASE + ConstantsHttpUrl.GO_ANAY_LIVE)
+                        .url(Constants.getHttpHost() + ConstantsHttpUrl.GO_ANAY_LIVE)
                         .post(formBody)
                         .build()
                 //3.创建一个call对象,参数就是Request请求对象
@@ -93,7 +94,7 @@ class LivePlayExitServer : Service() {
      */
     fun exitLiveRoom() {
         val mOkHttpClient = OkHttpClientUtils.initOKHttp()
-        val account = PreferencesUtils.getString(ConstantsKey.key_im_accid, "")
+        val account = UserManager.getUserAccid()
         val par = ConvertUtils.getRequest()
         par["liveStatus"] = "3"
         par["accid"] = account
@@ -101,7 +102,7 @@ class LivePlayExitServer : Service() {
 
 
         val request: Request = Request.Builder()
-                .url(Constants.HOST_RELEASE  + ConstantsHttpUrl.UP_ROOM_STATES)
+                .url(Constants.getHttpHost()  + ConstantsHttpUrl.UP_ROOM_STATES)
                 .post(formBody)
                 .build()
 

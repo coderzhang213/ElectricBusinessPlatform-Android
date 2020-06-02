@@ -43,7 +43,7 @@ public class RetrofitUtil {
      * 初始化Retrofit
      */
     public ApiService initRetrofit() {
-        return getServerRetrofit(Constants.HOST_RELEASE).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build().create(ApiService.class);
+        return getServerRetrofit(Constants.INSTANCE.getHttpHost()).addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build().create(ApiService.class);
     }
 
     private Retrofit.Builder getServerRetrofit(String baseUrl) {

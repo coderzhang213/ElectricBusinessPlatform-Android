@@ -57,6 +57,7 @@ public class BaseLiveFragment extends Fragment {
         mComfirmDialog.setOnCutCityLinsener(new ComfirmDialog.OnCutCityLinsener() {
             @Override
             public void onConfirmLinsener() {
+                okEvent.onClick(mComfirmDialog,1);
             }
 
             @Override

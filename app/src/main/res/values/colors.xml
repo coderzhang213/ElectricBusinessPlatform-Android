@@ -32,5 +32,10 @@
     <color name="color_btn_main">#FA1905</color>
     <color name="colorTran">#00FFFFFF</color>
     <color name="color_F17000">#F17000</color>
+    <color name="pager_def_color">#F5F7F7</color>
+    <color name="common_button_v2">#E83123</color>
+    <color name="color_stroke5">#F5F7F7</color>
+    <color name="color_stroke4">#FAFCFC</color>
+    <color name="text_color_white">#FFFFFF</color>
 
 </resources>

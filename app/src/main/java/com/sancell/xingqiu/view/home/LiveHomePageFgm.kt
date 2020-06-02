@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.sancell.xingqiu.R
 import com.sancell.xingqiu.base.view.BaseFragment
+import com.sancell.xingqiu.constants.UserManager
 import com.sancell.xingqiu.entity.banner.HomeBannerDataBean
 import com.sancell.xingqiu.entity.live.HomeRecommendLiverBean
 import com.sancell.xingqiu.entity.live.LiveFollowInfo
@@ -61,10 +62,10 @@ class LiveHomePageFgm : BaseFragment<LiveViewModel>() {
             ?.let { decoration.setDrawable(it) }
         rv_video_recommend.addItemDecoration(decoration)
         iv_home_search.setOnClickListener {
-            // LiveSearchActivity.start(context!!)
+             //LiveSearchActivity.start(context!!)
         }
         iv_home_user.setOnClickListener {
-            //  LiveOtherInfoActivity.start(context!!, AppUtils.getUserId())
+             //LiveOtherInfoActivity.start(context!!,UserManager.getUserId())
         }
         initFreshListener()
     }

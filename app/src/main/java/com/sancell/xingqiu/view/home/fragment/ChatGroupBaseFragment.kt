@@ -9,7 +9,6 @@ import com.sancell.xingqiu.base.viewmodel.BaseViewModel
  */
 class ChatGroupBaseFragment:BaseDataFragmentKt<BaseViewModel>() {
     override fun onReloadData() {
-        TODO("Not yet implemented")
     }
 
     override val isLoadNotDat: Boolean
@@ -20,10 +19,8 @@ class ChatGroupBaseFragment:BaseDataFragmentKt<BaseViewModel>() {
     override fun getLayoutResId(): Int = R.layout.fragmetn_home_group_layout
 
     override fun initView() {
-        TODO("Not yet implemented")
     }
 
     override fun initData() {
-        TODO("Not yet implemented")
     }
 }

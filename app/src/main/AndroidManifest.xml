@@ -16,7 +16,7 @@
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_video_red"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -36,10 +36,15 @@
         <activity
             android:name=".view.live.actviity.LivePlayHomeActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".view.live.actviity.LiveSettingActivity" />
+        <activity android:name=".view.live.actviity.AnchorHomeActivity" />
+        <activity android:name=".view.live.actviity.LiveIdentifyActivity" />
+        <activity android:name=".view.live.actviity.LiveOtherInfoActivity" />
 
         <meta-data
             android:name="com.sancell.xingqiu.glide.OkHttpGlideModule"
             android:value="AppGlideModule" />
+        <service android:name="com.sancell.xingqiu.services.LivePlayExitServer" />
     </application>
 
 </manifest>

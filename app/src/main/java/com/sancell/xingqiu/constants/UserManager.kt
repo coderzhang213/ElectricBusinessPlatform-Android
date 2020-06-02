@@ -55,15 +55,27 @@ object UserManager {
     //获取用户SKY
     fun getUserSkey(): String = PreferencesUtils.getString(ConstantsKey.KEY_SKEY, "")
 
+    fun getUserAccid(): String = PreferencesUtils.getString(ConstantsKey.key_im_accid, "")
     /**
      * 获取用户基本信息
      */
     fun getUserInfo(): UserData? {
         val userInfo = PreferencesUtils.getString(ConstantsKey.KEY_USERINFO, "")
         if (userInfo != null) {
-           // return JsonUtils.getObject(userInfo, UserData::class.java)
+            // return JsonUtils.getObject(userInfo, UserData::class.java)
             return Gson().fromJson(userInfo, UserData::class.java)
         }
         return null
+    }
+
+    /**
+     * 获取用户ID
+     */
+    fun getUserId(): String {
+        val user = getUserInfo()
+        user?.apply {
+            return userInfo!!.userId
+        }
+        return ""
     }
 }

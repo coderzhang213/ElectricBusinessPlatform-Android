@@ -2,6 +2,8 @@ package com.sancell.xingqiu.constants.utils;
 
 import android.util.Base64;
 
+import com.sancell.xingqiu.BuildConfig;
+
 import java.io.UnsupportedEncodingException;
 import java.security.KeyFactory;
 import java.security.MessageDigest;
@@ -35,7 +37,7 @@ public final class RSAUtils {
     private static final String RSA_PUBLICE_Off =
             "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApSHKkWF3tnHcv8SzMU0Yb3in/p8IGmbndAiHJi1EvyhfSCEUSwc41982cYpdo4uH91JAOY9Vb2XBoa0LdvEsfwdvq8gzx/GBCS4vSoxMNWrlcb3KxXhkYiOXjjJvK2O3plvZj0Y18BeYZIzKRABb92uZEmh/UaqG78L49vov3YSrwOjRwS1XRI+LqT2pChixkX6XX2XdpkdnP8LkTfclvymI6nZavGNedj4crjsBYLMeCTZl0LTRr6GfLZUD2xCRJavVH1uaFhJIGdd9mLdViVFCO84N/Qii8JkVk7zCiuLjpBV/Cc2KISsQ/jDIDAmr7OaxZ/Kt3imGEzZtTZKBxQIDAQAB";
 
-    private static String RSA_PUBLICE =true ? RSA_PUBLICE_Off : RSA_PUBLICE_TEST;
+    private static String RSA_PUBLICE = BuildConfig.IS_OFFICIAL ? RSA_PUBLICE_Off : RSA_PUBLICE_TEST;
 
 //    static {
 //        switch (BuildConfig.ENVIRONMENT) {
