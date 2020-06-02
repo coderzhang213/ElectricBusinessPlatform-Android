@@ -16,10 +16,12 @@ import com.sancell.xingqiu.constants.UserManager
 import com.sancell.xingqiu.entity.banner.HomeBannerDataBean
 import com.sancell.xingqiu.entity.live.HomeRecommendLiverBean
 import com.sancell.xingqiu.entity.live.LiveFollowInfo
+import com.sancell.xingqiu.enump.LivePlayType
 import com.sancell.xingqiu.mvvm.viewmodel.LiveViewModel
 import com.sancell.xingqiu.view.home.adapter.BannerImageAdapter
 import com.sancell.xingqiu.view.home.adapter.HomeLiveVideoAdapter
 import com.sancell.xingqiu.view.home.adapter.HomeLiverRecommendAdapter
+import com.sancell.xingqiu.view.live.actviity.LivePlayBaseHoemActivity
 import com.youth.banner.indicator.RectangleIndicator
 import com.youth.banner.transformer.RotateUpPageTransformer
 import com.youth.banner.util.BannerUtils
@@ -172,12 +174,12 @@ class LiveHomePageFgm : BaseFragment<LiveViewModel>() {
                     val info = mLiveVideoAdapter?.data?.get(position)
                     if (info?.liveStatus.equals("2")) {
                         info?.batchId?.let {
-                            //  LivePlayBaseHoemActivity.startIntent(context!!, LivePlayType.LIVE_LIST.type, it)
+                            LivePlayBaseHoemActivity.startIntent(context!!, LivePlayType.LIVE_LIST.type, it)
                         }
                     } else {
                         info?.batchId?.let {
 
-                            //  LivePlayBaseHoemActivity.startIntent(context!!, LivePlayType.RE_PLAY.type, it)
+                            LivePlayBaseHoemActivity.startIntent(context!!, LivePlayType.RE_PLAY.type, it)
 
                         }
                     }

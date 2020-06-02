@@ -37,6 +37,7 @@ abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity(),
         setSupportActionBar(mToolbar)
         initData()
         startObserve()
+        lifecycle
     }
 
     override fun onEndLoadView(loadType: LoadType) {

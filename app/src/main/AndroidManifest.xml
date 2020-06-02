@@ -40,6 +40,7 @@
         <activity android:name=".view.live.actviity.AnchorHomeActivity" />
         <activity android:name=".view.live.actviity.LiveIdentifyActivity" />
         <activity android:name=".view.live.actviity.LiveOtherInfoActivity" />
+        <activity android:name=".view.live.actviity.LivePlayBaseHoemActivity" />
 
         <meta-data
             android:name="com.sancell.xingqiu.glide.OkHttpGlideModule"
